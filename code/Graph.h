@@ -360,16 +360,29 @@ void Edge<T>::setFlow(double flow) {
     this->flow = flow;
 }
 
-template <class T>  //ADICIONADO
+/**
+ * @brief Adiciona uma aresta direcionada com suporte a fluxo (capacidade + residual)
+ *
+ * Esta rotina é usada em algoritmos de fluxo máximo como Edmonds-Karp
+ * Cria uma aresta direta com capacidade `w` e uma aresta residual inversa com
+ * capacidade 0, e associa os ponteiros reversos entre essas arestas
+ *
+ * @tparam T Tipo do rótulo/identificador do vértice 
+ * @param sourc Valor do vértice de origem
+ * @param dest Valor do vértice de destino
+ * @param w Capacidade da aresta direta
+ * @return true se ambos vértices existem e a aresta foi criada false caso contrário
+ */
+template <class T>
 bool Graph<T>::addDirectedFlowEdge(const T &sourc, const T &dest, double w) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr)
         return false;
 
-    // Forward edge with actual capacity 'w'
+    // Aresta direta com capacidade real w
     auto e1 = v1->addEdge(v2, w);
-    // Residual/Reverse edge with capacity 0
+    // Aresta residual inversa com capacidade 0
     auto e2 = v2->addEdge(v1, 0);
 
     e1->setReverse(e2);

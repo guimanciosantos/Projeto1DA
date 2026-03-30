@@ -30,13 +30,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a407329-bedf-48b9-a679-cb74909c7e2c" name="Changes" comment="">
-      <change beforePath="//wsl$/Ubuntu/home/gui/Projeto1DA/.idea/editor.xml" beforeDir="false" afterPath="//wsl$/Ubuntu/home/gui/Projeto1DA/.idea/editor.xml" afterDir="false" />
-      <change beforePath="//wsl$/Ubuntu/home/gui/Projeto1DA/.idea/workspace.xml" beforeDir="false" afterPath="//wsl$/Ubuntu/home/gui/Projeto1DA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="//wsl$/Ubuntu/home/gui/Projeto1DA/CMakeLists.txt" beforeDir="false" afterPath="//wsl$/Ubuntu/home/gui/Projeto1DA/CMakeLists.txt" afterDir="false" />
-      <change beforePath="//wsl$/Ubuntu/home/gui/Projeto1DA/code/main.cpp" beforeDir="false" afterPath="//wsl$/Ubuntu/home/gui/Projeto1DA/code/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projeto1DA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projeto1DA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/DataLoader.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/DataLoader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/Graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/code/Graph.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/NetworkManager.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/NetworkManager.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/code/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +52,21 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Guilherme" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_COMMON_BRANCH" value="main" />
-    <option name="RECENT_GIT_ROOT_PATH" value="//wsl$/Ubuntu/home/gui/Projeto1DA" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="MacroExpansionManager">
@@ -88,8 +104,13 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Guilherme",
-    "last_opened_file_path": "//wsl.localhost/Ubuntu/home/gui/Projeto1DA",
+    "git-widget-placeholder": "b9a3645b",
+    "last_opened_file_path": "C:/Users/tomas/OneDrive/DAProj",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "org.rust.first.attach.projects": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -101,17 +122,18 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Projeto1DA" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Projeto_DA" TARGET_NAME="Projeto1DA" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Projeto_DA" RUN_TARGET_NAME="Projeto1DA">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8a407329-bedf-48b9-a679-cb74909c7e2c" name="Changes" comment="" />
@@ -121,6 +143,7 @@
       <updated>1774283634788</updated>
       <workItem from="1774283636446" duration="1703000" />
       <workItem from="1774808129054" duration="11024000" />
+      <workItem from="1774890116236" duration="2457000" />
     </task>
     <servers />
   </component>

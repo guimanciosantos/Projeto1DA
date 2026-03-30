@@ -12,9 +12,9 @@ set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )
 
 add_executable(Projeto1DA
         code/main.cpp
-        code/DataLoader.cpp
-        code/DataLoader.h
+        code/Parser.cpp
+        code/Parser.h
         code/Graph.h
-        code/NetworkManager.h
-        code/NetworkManager.cpp
+        code/Solver.h
+        code/Solver.cpp
 )

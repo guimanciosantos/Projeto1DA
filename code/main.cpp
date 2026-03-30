@@ -1,121 +1,223 @@
 #include <iostream>
 #include <string>
-#include "DataLoader.h"
-#include "NetworkManager.h"
+#include <vector>
+#include <algorithm>
+#include "Parser.h"
+#include "Solver.h"
 
 using namespace std;
 
-// Function declarations - Notice we now pass the DataLoader by reference (&)
+/**
+ * @brief Declarações de funções para os dois modos de execução
+ */
 void runInteractiveMode(DataLoader& loader);
 void runBatchMode(const string& inputFile, const string& outputFile, DataLoader& loader);
 
+/**
+ * @brief Função principal,gere os modos de execução
+ *
+ * Interpreta argumentos 
+ * - Sem argumentos: ativa modo interativo
+ * - Com "-b input.csv output.csv": ativa o modo batch
+ * - Argumentos inválidos: exibe mensagem de erro
+ *
+ * @param argc Número de argumentos de linha de comando
+ * @param argv Vetor de argumentos de linha de comando
+ * @return 0 se execução bem-sucedida; 1 em caso de erro
+ */
 int main(int argc, char* argv[]) {
-    // We declare the loader here so BOTH modes can use the exact same data!
     DataLoader loader;
 
-    // 1. Check for Batch Mode Execution
+    // verifica se o modo batch foi executado
     if (argc == 4 && string(argv[1]) == "-b") {
         runBatchMode(argv[2], argv[3], loader);
     }
-    // 2. Check for Interactive Mode Execution
+    // modo interativo
     else if (argc == 1) {
         runInteractiveMode(loader);
     }
-    // 3. Handle Invalid Arguments
+    // argumentos inválidos
     else {
-        cerr << "Error: Invalid command line arguments." << endl;
-        cerr << "Usage for Interactive Mode: ./myProg" << endl;
-        cerr << "Usage for Batch Mode: ./myProg -b input.csv output.csv" << endl;
+        cerr << "Erro: Argumentos de linha de comando inválidos." << endl;
+        cerr << "Uso para modo interativo: ./myProg" << endl;
+        cerr << "Uso para modo batch: ./myProg -b input.csv output.csv" << endl;
         return 1;
     }
 
     return 0;
 }
 
+/**
+ * @brief Executa o modo interativo com menu de opções
+ *
+ * Opções disponíveis:
+ * 1. Ler dados e construir grafo 
+ * 2. Ver dados carregados e parâmetros 
+ * 3. Gerar atribuições de revisão 
+ * 0. Sair
+ *
+ * @param loader Referência ao carregador de dados (DataLoader)
+ */
 void runInteractiveMode(DataLoader& loader) {
     int choice = -1;
 
     while (choice != 0) {
-        cout << "\n=====================================================\n";
-        cout << "   Scientific Conference Organization Tool (DA 2026)\n";
-        cout << "=====================================================\n";
-        cout << "1. Read Data and Build Graph (T1.2)\n";
-        cout << "2. Generate Review Assignments (T2.1)\n";
-        cout << "3. Run Risk Analysis\n";
-        cout << "0. Exit\n";
-        cout << "=====================================================\n";
-        cout << "Enter your choice: ";
+        cout << "\n-----------------------------------------------------\n";
+        cout << "   Ferramenta de Organização  \n";
+        cout << "-----------------------------------------------------\n";
+        cout << "1. Ler dados e construir grafo \n";
+        cout << "2. Ver dados carregados e parâmetros \n";
+        cout << "3. Gerar atribuições de revisão \n";
+        cout << "0. Sair\n";
+        cout << "-----------------------------------------------------\n";
+        cout << "Escolha uma opção: ";
 
         if (!(cin >> choice)) {
-            cerr << "Error: Invalid input. Please enter a number." << endl;
+            cerr << "Erro: número inválido. insira um número válido." << endl;
             cin.clear();
             cin.ignore(10000, '\n');
             continue;
         }
 
         switch (choice) {
-            case 1: { // The curly braces are required here in C++!
+            case 1: {
                 string filename;
-                cout << "Enter the dataset filename (e.g., input.csv): ";
+                //nome se estiver o ficheiro na pasta, senao escrever o caminho completo
+                cout << "Insira o nome do ficheiro de dados (ex: input.csv): ";
                 cin >> filename;
 
                 if (loader.loadData(filename)) {
-                    cout << "\nData successfully loaded!\n";
-                    cout << "Submissions: " << loader.submissions.size() << "\n";
-                    cout << "Reviewers: " << loader.reviewers.size() << "\n";
-                    cout << "Building Network Flow Graph...\n";
-
-                    // Build the graph using the function from NetworkManager
-                    Graph<string> myGraph = buildGraph(loader.submissions, loader.reviewers, loader.config);
-
-                    cout << "Success! Graph built with " << myGraph.getNumVertex() << " vertices.\n";
+                    cout << "\nDados carregados com sucesso\n";
+                    cout << "Submissões: " << loader.submissions.size() << "\n";
+                    cout << "Revisores: " << loader.reviewers.size() << "\n";
                 }
                 break;
             }
-            case 2:
+            case 2: { 
                 if (loader.submissions.empty()) {
-                    cerr << "Error: You must Read Data (Option 1) before generating assignments!\n";
-                } else {
-                    cout << "Generating Review Assignments using Edmonds-Karp Max Flow...\n";
+                    cerr << "Erro: use a Opção 1 primeiro\n";
+                    break;
+                }
 
-                    // 1. Rebuild base graph
+                int subChoice = -1;
+                while (subChoice != 0) {
+                    cout << "\n--- Ver dados carregados ---\n";
+                    cout << "1. Parâmetros atuais de configuração\n";
+                    cout << "2. Lista de submissões\n";
+                    cout << "3. Lista de revisores\n";
+                    cout << "0. Voltar ao menu\n";
+                    cout << "------------------------\n";
+                    cout << "Selecione opção: ";
+
+                    if (!(cin >> subChoice)) {
+                        cerr << "Erro: Entrada inválida.\n";
+                        cin.clear(); cin.ignore(10000, '\n');
+                        continue;
+                    }
+
+                    switch (subChoice) {
+                        case 1:
+                            cout << "\n[ PARÂMETROS ATUAIS DE CONFIGURAÇÃO ]\n";
+                            cout << "- Revisões mínimas por submissão: " << loader.config.minReviewsPerSubmission << "\n";
+                            cout << "- Revisões máximas por revisor: " << loader.config.maxReviewsPerReviewer << "\n";
+                            cout << "- Análise de risco ativada: ";
+                            if (loader.config.riskAnalysis == 1) {
+                                cout << "Sim\n";
+                            } else {
+                                cout << "Não\n";
+                            }
+                            break;
+                        case 2:
+                            cout << "\n[ LISTA DE SUBMISSÕES (Total: " << loader.submissions.size() << ") ]\n";
+                            for (const auto& sub : loader.submissions) {
+                                cout << "ID: " << sub.id << " | Domínio principal: " << sub.primaryDomain
+                                     << " | Título: " << sub.title << "\n";
+                            }
+                            break;
+                        case 3:
+                            cout << "\n[ LISTA DE REVISORES (Total: " << loader.reviewers.size() << ") ]\n";
+                            for (const auto& rev : loader.reviewers) {
+                                cout << "ID: " << rev.id << " | Especialidade principal: " << rev.primaryExpertise
+                                     << " | Nome: " << rev.name << "\n";
+                            }
+                            break;
+                        case 0:
+                            cout << "Regressando ao menu principal...\n";
+                            break;
+                        default:
+                            cerr << "Erro: Escolha inválida.\n";
+                    }
+                }
+                break;
+            }
+            case 3: {
+                if (loader.submissions.empty()) {
+                    cerr << "Erro: Deves ler os dados (Opção 1) antes de gerar as atribuições!\n";
+                } else {
+                    cout << "Construindo grafo...\n";
                     Graph<string> myGraph = buildGraph(loader.submissions, loader.reviewers, loader.config);
 
-                    // 2. Run Max Flow
+                    cout << "gerando revisões usando Edmonds-Karp Max Flow...\n";
                     edmondsKarp(myGraph, "SOURCE", "SINK");
 
-                    // 3. Check for Risk Analysis (Task 2.2)
+                    // Imprimir os caminhos completos na consola (T1.1)
+                    cout << "\n--- Full Sequence Paths (Origin -> Destination) ---\n";
+                    for (const auto& sub : loader.submissions) {
+                        string subNode = "SUB_" + to_string(sub.id);
+                        auto v = myGraph.findVertex(subNode);
+                        if (v) {
+                            for (auto e : v->getAdj()) {
+                                if (e->getFlow() > 0 && e->getDest()->getInfo().find("REV_") == 0) {
+                                    cout << "SOURCE -> " << subNode << " -> " << e->getDest()->getInfo() << " -> SINK\n";
+                                }
+                            }
+                        }
+                    }
+                    cout << "---------------------------------------------------\n";
+
                     vector<int> riskyReviewers;
                     if (loader.config.riskAnalysis == 1) {
-                        cout << "Risk Analysis = 1 is enabled. Simulating reviewer dropouts...\n";
+                        cout << "Análise de risco = 1 ativada. Simulando ausências de revisores...\n";
                         riskyReviewers = runRiskAnalysis1(loader);
                     }
 
-                    // 4. Extract and Output Results
                     generateAssignmentsOutput(myGraph, loader, riskyReviewers);
                 }
                 break;
-            case 3:
-                cout << "Feature coming soon: Risk Analysis...\n";
-                break;
+            }
             case 0:
-                cout << "Exiting the tool. Goodbye!\n";
+                cout << "Saindo da ferramenta\n";
                 break;
             default:
-                cerr << "Error: Invalid choice. Please select a valid option.\n";
+                cerr << "Erro: número inválido. Por favor selecione um número válido.\n";
         }
     }
 }
 
+/**
+ * @brief Executa a ferramenta em modo batch 
+ *  
+ * Lê o ficheiro , contrói o grafo, calcula o fluxo máximo,
+ * executa análise de risco (quando pedido), e mete os resultados nos ficheiros de saída
+ *
+ * @param inputFile Caminho do ficheiro de entrada
+ * @param outputFile Caminho do ficheiro de saída
+ * @param loader Referência ao carregador de dados (modificado com dados carregados)
+ */
 void runBatchMode(const string& inputFile, const string& outputFile, DataLoader& loader) {
-    cout << "Running in Batch Mode..." << endl;
-
-    // In batch mode, we load the file automatically without asking the user
     if (loader.loadData(inputFile)) {
+        loader.config.outputFileName = outputFile;
+
         Graph<string> myGraph = buildGraph(loader.submissions, loader.reviewers, loader.config);
-        cout << "Graph built successfully in batch mode.\n";
-        // Later, we will redirect the algorithm outputs to outputFile here! [cite: 121]
+        edmondsKarp(myGraph, "SOURCE", "SINK");
+
+        vector<int> riskyReviewers;
+        if (loader.config.riskAnalysis == 1) {
+            riskyReviewers = runRiskAnalysis1(loader);
+        }
+
+        generateAssignmentsOutput(myGraph, loader, riskyReviewers);
     } else {
-        cerr << "Batch Mode Error: Failed to load " << inputFile << endl;
+        cerr << "Erro: Falha ao carregar " << inputFile << " em modo batch." << endl;
     }
 }

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Projeto1DA.dir/code/main.cpp.o CMakeFiles/Projeto1DA.dir/code/Parser.cpp.o CMakeFiles/Projeto1DA.dir/code/Solver.cpp.o -o Projeto1DA
