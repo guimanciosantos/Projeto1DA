@@ -1,0 +1,100 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}Parser.\+h"{}}\newline
+{\ttfamily \#include "{}Solver.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{main_8cpp_aa5df77a676729948478ae9fdbcb6579c}{run\+Interactive\+Mode}} (\mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&\mbox{\hyperlink{classEdge}{loader}})
+\begin{DoxyCompactList}\small\item\em Declarações de funções para os dois modos de execução. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{main_8cpp_a36784f52d84a39fe9831c65bb3662f55}{run\+Batch\+Mode}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&\mbox{\hyperlink{classEdge}{input\+File}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&\mbox{\hyperlink{classEdge}{output\+File}}, \mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&\mbox{\hyperlink{classEdge}{loader}})
+\begin{DoxyCompactList}\small\item\em Executa a ferramenta em modo batch. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{int}} \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (\mbox{\hyperlink{classEdge}{int}} \mbox{\hyperlink{classEdge}{argc}}, \mbox{\hyperlink{classEdge}{char}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classEdge}{argv}}\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Função principal,gere os modos de execução. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{int}} main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{int}}}]{argc,  }\item[{\mbox{\hyperlink{classEdge}{char}} \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Função principal,gere os modos de execução. 
+
+Interpreta argumentos
+\begin{DoxyItemize}
+\item Sem argumentos\+: ativa modo interativo
+\item Com "{}-\/b input.\+csv output.\+csv"{}\+: ativa o modo batch
+\item Argumentos inválidos\+: exibe mensagem de erro
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Número de argumentos de linha de comando \\
+\hline
+{\em argv} & Vetor de argumentos de linha de comando \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 se execução bem-\/sucedida; 1 em caso de erro 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a36784f52d84a39fe9831c65bb3662f55}\label{main_8cpp_a36784f52d84a39fe9831c65bb3662f55} 
+\index{main.cpp@{main.cpp}!runBatchMode@{runBatchMode}}
+\index{runBatchMode@{runBatchMode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{runBatchMode()}{runBatchMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} run\+Batch\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&}]{input\+File,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{string}} \&}]{output\+File,  }\item[{\mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&}]{loader }\end{DoxyParamCaption})}
+
+
+
+Executa a ferramenta em modo batch. 
+
+Lê o ficheiro , contrói o grafo, calcula o fluxo máximo, executa análise de risco (quando pedido), e mete os resultados nos ficheiros de saída
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+File} & Caminho do ficheiro de entrada \\
+\hline
+{\em output\+File} & Caminho do ficheiro de saída \\
+\hline
+{\em loader} & Referência ao carregador de dados (modificado com dados carregados) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_aa5df77a676729948478ae9fdbcb6579c}\label{main_8cpp_aa5df77a676729948478ae9fdbcb6579c} 
+\index{main.cpp@{main.cpp}!runInteractiveMode@{runInteractiveMode}}
+\index{runInteractiveMode@{runInteractiveMode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{runInteractiveMode()}{runInteractiveMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} run\+Interactive\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&}]{loader }\end{DoxyParamCaption})}
+
+
+
+Declarações de funções para os dois modos de execução. 
+
+Executa o modo interativo com menu de opções.
+
+Opções disponíveis\+:
+\begin{DoxyEnumerate}
+\item Ler dados e construir grafo
+\item Ver dados carregados e parâmetros
+\item Gerar atribuições de revisão 0. Sair
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em loader} & Referência ao carregador de dados (\doxylink{classDataLoader}{Data\+Loader}) \\
+\hline
+\end{DoxyParams}

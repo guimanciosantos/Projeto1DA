@@ -1,0 +1,100 @@
+\doxysection{Data\+Loader Class Reference}
+\hypertarget{classDataLoader}{}\label{classDataLoader}\index{DataLoader@{DataLoader}}
+
+
+le e mantem os dados do ficheiro de entrada  
+
+
+
+
+{\ttfamily \#include $<$Parser.\+h$>$}
+
+
+
+Collaboration diagram for Data\+Loader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classDataLoader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEdge}{bool}} \mbox{\hyperlink{classDataLoader_a93333e1a5ceac957308f7e5fa9bed46c}{load\+Data}} (\mbox{\hyperlink{classEdge}{const}} std\+::string \&\mbox{\hyperlink{classEdge}{filename}})
+\begin{DoxyCompactList}\small\item\em Carrega dados a partir de um ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structSubmission}{Submission}} $>$ \mbox{\hyperlink{classDataLoader_a76dc19fb8787f4f767ea33b164458e31}{submissions}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structReviewer}{Reviewer}} $>$ \mbox{\hyperlink{classDataLoader_a10447e7c5daff986078b54dcd2d3b142}{reviewers}}
+\item 
+\mbox{\hyperlink{structAppConfig}{App\+Config}} \mbox{\hyperlink{classDataLoader_a0a91b4d1d3ace37b2358891089297328}{config}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+le e mantem os dados do ficheiro de entrada 
+
+Mantém vetores de submissões e revisores, e a configuração da aplicação. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDataLoader_a93333e1a5ceac957308f7e5fa9bed46c}\label{classDataLoader_a93333e1a5ceac957308f7e5fa9bed46c} 
+\index{DataLoader@{DataLoader}!loadData@{loadData}}
+\index{loadData@{loadData}!DataLoader@{DataLoader}}
+\doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{bool}} Data\+Loader\+::load\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Carrega dados a partir de um ficheiro. 
+
+Carrega os dados e estrutura em seções.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Caminho do ficheiro de input \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o ficheiro foi carregado com sucesso, false caso contrário.
+\end{DoxyReturn}
+Para cada linha válida, preenche \textquotesingle{}submissions\textquotesingle{}, \textquotesingle{}reviewers\textquotesingle{} e \textquotesingle{}config\textquotesingle{}. Ignora comentários (tudo após \textquotesingle{}\#\textquotesingle{})
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Caminho do ficheiro a carregar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o ficheiro foi carregado com sucesso; false em erro. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDataLoader_a0a91b4d1d3ace37b2358891089297328}\label{classDataLoader_a0a91b4d1d3ace37b2358891089297328} 
+\index{DataLoader@{DataLoader}!config@{config}}
+\index{config@{config}!DataLoader@{DataLoader}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAppConfig}{App\+Config}} Data\+Loader\+::config}
+
+\Hypertarget{classDataLoader_a10447e7c5daff986078b54dcd2d3b142}\label{classDataLoader_a10447e7c5daff986078b54dcd2d3b142} 
+\index{DataLoader@{DataLoader}!reviewers@{reviewers}}
+\index{reviewers@{reviewers}!DataLoader@{DataLoader}}
+\doxysubsubsection{\texorpdfstring{reviewers}{reviewers}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structReviewer}{Reviewer}}$>$ Data\+Loader\+::reviewers}
+
+\Hypertarget{classDataLoader_a76dc19fb8787f4f767ea33b164458e31}\label{classDataLoader_a76dc19fb8787f4f767ea33b164458e31} 
+\index{DataLoader@{DataLoader}!submissions@{submissions}}
+\index{submissions@{submissions}!DataLoader@{DataLoader}}
+\doxysubsubsection{\texorpdfstring{submissions}{submissions}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structSubmission}{Submission}}$>$ Data\+Loader\+::submissions}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Parser_8h}{Parser.\+h}}\item 
+\mbox{\hyperlink{Parser_8cpp}{Parser.\+cpp}}\end{DoxyCompactItemize}

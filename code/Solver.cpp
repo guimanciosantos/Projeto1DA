@@ -113,7 +113,7 @@ bool findAugmentingPath(Graph<string>& g, string s, string t) {
  *
  * Calcula o fluxo máximo de origem para destino iterativamente:
  * 1. Redefine todos os fluxos para 0
- * 2. Encontra caminhos aumentadores e pune o máximo fluxo possível
+ * 2. Encontra caminhos aumentadores e chega ao máximo fluxo possível
  * 3. Atualiza as arestas residuais (reversa)
  * 4. Repete até não haver mais caminhos aumentadores
  *
@@ -193,7 +193,7 @@ bool compareReviewers(const Assignment& a, const Assignment& b) {
  * @brief Identifica revisores críticos (ausencia faz com que a atribuiçao falhe)
  *
  * Para cada revisor, simula a sua remoção do grafo e faz Edmonds-Karp
- * Se o fluxo máximo ficar abaixo do alvo (submissões × minReviewsPerSubmission), clasifica o revisor como crítico/arriscado
+ * Se o fluxo máximo ficar abaixo do alvo (submissões × minReviewsPerSubmission), classifica o revisor como crítico/arriscado
  *
  * @param data Dados carregados (submissões, revisores, configuração)
  * @return Vetor de IDs de revisores críticos (ordenado)
@@ -240,7 +240,7 @@ vector<int> runRiskAnalysis1(const DataLoader& data) {
  * Extrai fluxo > 0 do grafo para montar a tabela de atribuições
  * 1. Atribuições da submissão
  * 2. Atribuições do revisor
- * 3. Submissões com revisões faltando (se houver)
+ * 3. Submissões com revisões em falta (se houver)
  * 4. Revisores críticos (se riskAnalysis = 1)
  *
  * @param g Grafo de fluxo com fluxos calculados
@@ -320,6 +320,6 @@ void generateAssignmentsOutput(Graph<string>& g, const DataLoader& data, const v
         }
     }
 
-    cout << "Finished! Results saved to " << outName << endl;
+    cout << "Resultados guardados em " << outName << endl;
     outFile.close();
 }

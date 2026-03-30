@@ -1,0 +1,48 @@
+\doxysection{Parser.\+h}
+\hypertarget{Parser_8h_source}{}\label{Parser_8h_source}\mbox{\hyperlink{Parser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARSER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARSER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Structs\ to\ hold\ our\ parsed\ CSV\ data}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSubmission}{Submission}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSubmission_a7b6e2405d79134e923f1d74beba845a0}{id}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{structSubmission_ac26241e9b65c1ac2303a721ac41fed23}{title}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{structSubmission_abc36602a076982fb0350e0d762df13d9}{authors}};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{structSubmission_a51e55a4428be7a259df3e7c285673011}{email}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSubmission_aa983dd3d98f1ac3ee5a713d01ca875ed}{primaryDomain}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structSubmission_a9bafaead1609a44c738d2e6d9e511e9e}{secondaryDomain}};}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structReviewer}{Reviewer}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structReviewer_aeacccab23a0ec1c59ab0283f95f01fda}{id}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{structReviewer_a4f4d39ede0d1981ead7b06210a95c161}{name}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{structReviewer_a0c3ec9bf2183781b75b96053859e9e05}{email}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structReviewer_a1a6ba130656856000843bbc57e811486}{primaryExpertise}};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structReviewer_a19fc5d836237badc57737b4b8bbdcd10}{secondaryExpertise}};}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAppConfig}{AppConfig}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structAppConfig_a552e0cb4f18194e517fe6244b9586fc3}{minReviewsPerSubmission}}\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structAppConfig_af653920aff6c585def2462f0503813ba}{maxReviewsPerReviewer}}\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structAppConfig_a444475010ceb4b046e85cf615746937b}{generateAssignments}}\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structAppConfig_a18ba5d5d5a793a0afad5778454b175f7}{riskAnalysis}}\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{structAppConfig_a1d4e5984fabe74e08a9941470ab762cf}{outputFileName}}\ =\ \textcolor{stringliteral}{"{}output.csv"{}};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDataLoader}{DataLoader}}\ \{}
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Submission>\ \mbox{\hyperlink{classDataLoader_a76dc19fb8787f4f767ea33b164458e31}{submissions}};}
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<Reviewer>\ \mbox{\hyperlink{classDataLoader_a10447e7c5daff986078b54dcd2d3b142}{reviewers}};}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{structAppConfig}{AppConfig}}\ \mbox{\hyperlink{classDataLoader_a0a91b4d1d3ace37b2358891089297328}{config}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDataLoader_a93333e1a5ceac957308f7e5fa9bed46c}{loadData}}(\textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{classEdge}{filename}});}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

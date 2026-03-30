@@ -1,0 +1,26 @@
+\doxysection{Solver.\+h}
+\hypertarget{Solver_8h_source}{}\label{Solver_8h_source}\mbox{\hyperlink{Solver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SOLVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SOLVER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Graph_8h}{Graph.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Parser_8h}{Parser.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00019\ \mbox{\hyperlink{classEdge}{Graph<string>}}\ \mbox{\hyperlink{Solver_8h_a9db23a472dc27b8f54c0af18849c217a}{buildGraph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classEdge}{vector<Submission>}}\&\ \mbox{\hyperlink{classEdge}{subms}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classEdge}{vector<Reviewer>}}\&\ \mbox{\hyperlink{classEdge}{revs}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structAppConfig}{AppConfig}}\&\ config);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Solver_8h_a5729897ff81f68114610e0e587b9ffc2}{findAugmentingPath}}(\mbox{\hyperlink{classEdge}{Graph<string>}}\&\ \mbox{\hyperlink{classEdge}{g}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classEdge}{s}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classEdge}{t}});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Solver_8h_a0d54cf9ec84571f35c3d0e8904bd0ed1}{edmondsKarp}}(\mbox{\hyperlink{classEdge}{Graph<string>}}\&\ \mbox{\hyperlink{classEdge}{g}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classEdge}{s}},\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{classEdge}{t}});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \mbox{\hyperlink{classEdge}{vector<int>}}\ \mbox{\hyperlink{Solver_8h_ab55c7666ed06ac0226fcf772746ee46a}{runRiskAnalysis1}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classDataLoader}{DataLoader}}\&\ \mbox{\hyperlink{classEdge}{data}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Solver_8h_a0cfdee81c95abd8af424d8ea20859b63}{generateAssignmentsOutput}}(\mbox{\hyperlink{classEdge}{Graph<string>}}\&\ \mbox{\hyperlink{classEdge}{g}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classDataLoader}{DataLoader}}\&\ \mbox{\hyperlink{classEdge}{data}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classEdge}{vector<int>}}\&\ \mbox{\hyperlink{classEdge}{riskyReviewers}});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

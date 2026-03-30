@@ -161,7 +161,7 @@ void runInteractiveMode(DataLoader& loader) {
                     edmondsKarp(myGraph, "SOURCE", "SINK");
 
                     // Imprimir os caminhos completos na consola (T1.1)
-                    cout << "\n--- Full Sequence Paths (Origin -> Destination) ---\n";
+                    cout << "\n--- Caminhos Completos (Source -> Sink) ---\n";
                     for (const auto& sub : loader.submissions) {
                         string subNode = "SUB_" + to_string(sub.id);
                         auto v = myGraph.findVertex(subNode);
@@ -177,7 +177,7 @@ void runInteractiveMode(DataLoader& loader) {
 
                     vector<int> riskyReviewers;
                     if (loader.config.riskAnalysis == 1) {
-                        cout << "Análise de risco = 1 ativada. Simulando ausências de revisores...\n";
+                        cout << "Análise de risco = 1 ativada. A simular ausências de revisores...\n";
                         riskyReviewers = runRiskAnalysis1(loader);
                     }
 

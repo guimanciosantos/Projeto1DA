@@ -1,0 +1,216 @@
+\doxysection{Solver.\+cpp File Reference}
+\hypertarget{Solver_8cpp}{}\label{Solver_8cpp}\index{Solver.cpp@{Solver.cpp}}
+{\ttfamily \#include "{}Solver.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+Include dependency graph for Solver.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Solver_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAssignment}{Assignment}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \mbox{\hyperlink{Solver_8cpp_a9db23a472dc27b8f54c0af18849c217a}{build\+Graph}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{structSubmission}{Submission}} $>$ \&\mbox{\hyperlink{classEdge}{subms}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&\mbox{\hyperlink{classEdge}{revs}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAppConfig}{App\+Config}} \&config)
+\begin{DoxyCompactList}\small\item\em Constrói o grafo de fluxo para atribuição de revisões. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{bool}} \mbox{\hyperlink{Solver_8cpp_a5729897ff81f68114610e0e587b9ffc2}{find\+Augmenting\+Path}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \&\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{s}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{t}})
+\begin{DoxyCompactList}\small\item\em Encontra um caminho aumentador de origem para destino usando BFS. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{Solver_8cpp_a0d54cf9ec84571f35c3d0e8904bd0ed1}{edmonds\+Karp}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \&\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{s}}, \mbox{\hyperlink{classEdge}{string}} \mbox{\hyperlink{classEdge}{t}})
+\begin{DoxyCompactList}\small\item\em Implementa o algoritmo Edmonds-\/\+Karp para fluxo máximo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{bool}} \mbox{\hyperlink{Solver_8cpp_af31675ffdf217c7ec9cfeec9713950ad}{compare\+Submissions}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&\mbox{\hyperlink{classEdge}{a}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&\mbox{\hyperlink{classEdge}{b}})
+\begin{DoxyCompactList}\small\item\em Compara para ordenar atribuições pelo ID da submissão. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{bool}} \mbox{\hyperlink{Solver_8cpp_abf291e959e3182c222a436080577ca37}{compare\+Reviewers}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&\mbox{\hyperlink{classEdge}{a}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&\mbox{\hyperlink{classEdge}{b}})
+\begin{DoxyCompactList}\small\item\em Compara para ordenar atribuições pelo ID do revisor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ \mbox{\hyperlink{Solver_8cpp_ab55c7666ed06ac0226fcf772746ee46a}{run\+Risk\+Analysis1}} (\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&\mbox{\hyperlink{classEdge}{data}})
+\begin{DoxyCompactList}\small\item\em Identifica revisores críticos (ausencia faz com que a atribuiçao falhe) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEdge}{void}} \mbox{\hyperlink{Solver_8cpp_a0cfdee81c95abd8af424d8ea20859b63}{generate\+Assignments\+Output}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \&\mbox{\hyperlink{classEdge}{g}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&\mbox{\hyperlink{classEdge}{data}}, \mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ \&\mbox{\hyperlink{classEdge}{risky\+Reviewers}})
+\begin{DoxyCompactList}\small\item\em Gera ficheiro de saída com atribuições e análises. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Solver_8cpp_a9db23a472dc27b8f54c0af18849c217a}\label{Solver_8cpp_a9db23a472dc27b8f54c0af18849c217a} 
+\index{Solver.cpp@{Solver.cpp}!buildGraph@{buildGraph}}
+\index{buildGraph@{buildGraph}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{buildGraph()}{buildGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ build\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{subms,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{revs,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAppConfig}{App\+Config}} \&}]{config }\end{DoxyParamCaption})}
+
+
+
+Constrói o grafo de fluxo para atribuição de revisões. 
+
+Adiciona\+:
+\begin{DoxyItemize}
+\item Vértices SOURCE e SINK
+\item Vértices de submissões com arestas do SOURCE (capacidade = min\+Reviews\+Per\+Submission)
+\item Vértices de revisores com arestas para SINK (capacidade = max\+Reviews\+Per\+Reviewer)
+\item Arestas entre submissões e revisores se os domínios coincidem (capacidade = 1)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em subms} & Vetor de submissões \\
+\hline
+{\em revs} & Vetor de revisores \\
+\hline
+{\em config} & Configuração com limites de revisões. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Grafo direcionado com capacidades para fluxo máximo 
+\end{DoxyReturn}
+\Hypertarget{Solver_8cpp_abf291e959e3182c222a436080577ca37}\label{Solver_8cpp_abf291e959e3182c222a436080577ca37} 
+\index{Solver.cpp@{Solver.cpp}!compareReviewers@{compareReviewers}}
+\index{compareReviewers@{compareReviewers}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{compareReviewers()}{compareReviewers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{bool}} compare\+Reviewers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&}]{a,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Compara para ordenar atribuições pelo ID do revisor. 
+
+Ordena primeiro pelo ID do revisor, depois pelo ID da submissão (desempate).
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira atribuição. \\
+\hline
+{\em b} & Segunda atribuição. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a \texorpdfstring{$<$}{<} b segundo este critério. 
+\end{DoxyReturn}
+\Hypertarget{Solver_8cpp_af31675ffdf217c7ec9cfeec9713950ad}\label{Solver_8cpp_af31675ffdf217c7ec9cfeec9713950ad} 
+\index{Solver.cpp@{Solver.cpp}!compareSubmissions@{compareSubmissions}}
+\index{compareSubmissions@{compareSubmissions}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{compareSubmissions()}{compareSubmissions()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{bool}} compare\+Submissions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&}]{a,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{structAssignment}{Assignment}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Compara para ordenar atribuições pelo ID da submissão. 
+
+Ordena primeiro pelo ID da submissão, depois pelo ID do revisor (desempate).
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Primeira atribuição. \\
+\hline
+{\em b} & Segunda atribuição. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a \texorpdfstring{$<$}{<} b segundo este critério. 
+\end{DoxyReturn}
+\Hypertarget{Solver_8cpp_a0d54cf9ec84571f35c3d0e8904bd0ed1}\label{Solver_8cpp_a0d54cf9ec84571f35c3d0e8904bd0ed1} 
+\index{Solver.cpp@{Solver.cpp}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \&}]{g,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{s,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Implementa o algoritmo Edmonds-\/\+Karp para fluxo máximo. 
+
+Calcula o fluxo máximo de origem para destino iterativamente\+:
+\begin{DoxyEnumerate}
+\item Redefine todos os fluxos para 0
+\item Encontra caminhos aumentadores e chega ao máximo fluxo possível
+\item Atualiza as arestas residuais (reversa)
+\item Repete até não haver mais caminhos aumentadores
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Referência ao grafo de fluxo \\
+\hline
+{\em s} & source \\
+\hline
+{\em t} & sink \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Solver_8cpp_a5729897ff81f68114610e0e587b9ffc2}\label{Solver_8cpp_a5729897ff81f68114610e0e587b9ffc2} 
+\index{Solver.cpp@{Solver.cpp}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{bool}} find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \&}]{g,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{s,  }\item[{\mbox{\hyperlink{classEdge}{string}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Encontra um caminho aumentador de origem para destino usando BFS. 
+
+Encontra um caminho aumentador da origem para o destino usando BFS.
+
+Realiza uma busca em largura (BFS) para encontrar um caminho do SOURCE para SINK onde ainda há capacidade disponível nas arestas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Referência ao grafo de fluxo \\
+\hline
+{\em s} & source \\
+\hline
+{\em t} & sink \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se um caminho aumentador foi encontrado; false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{Solver_8cpp_a0cfdee81c95abd8af424d8ea20859b63}\label{Solver_8cpp_a0cfdee81c95abd8af424d8ea20859b63} 
+\index{Solver.cpp@{Solver.cpp}!generateAssignmentsOutput@{generateAssignmentsOutput}}
+\index{generateAssignmentsOutput@{generateAssignmentsOutput}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{generateAssignmentsOutput()}{generateAssignmentsOutput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{void}} generate\+Assignments\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{classEdge}{string}} $>$ \&}]{g,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&}]{data,  }\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ \&}]{risky\+Reviewers }\end{DoxyParamCaption})}
+
+
+
+Gera ficheiro de saída com atribuições e análises. 
+
+Extrai fluxo \texorpdfstring{$>$}{>} 0 do grafo para montar a tabela de atribuições
+\begin{DoxyEnumerate}
+\item Atribuições da submissão
+\item Atribuições do revisor
+\item Submissões com revisões em falta (se houver)
+\item Revisores críticos (se risk\+Analysis = 1)
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Grafo de fluxo com fluxos calculados \\
+\hline
+{\em data} & Estrutura com dados de entrada e configuração \\
+\hline
+{\em risky\+Reviewers} & Lista de IDs de revisores criticos \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Solver_8cpp_ab55c7666ed06ac0226fcf772746ee46a}\label{Solver_8cpp_ab55c7666ed06ac0226fcf772746ee46a} 
+\index{Solver.cpp@{Solver.cpp}!runRiskAnalysis1@{runRiskAnalysis1}}
+\index{runRiskAnalysis1@{runRiskAnalysis1}!Solver.cpp@{Solver.cpp}}
+\doxysubsubsection{\texorpdfstring{runRiskAnalysis1()}{runRiskAnalysis1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEdge}{vector}}$<$ \mbox{\hyperlink{classEdge}{int}} $>$ run\+Risk\+Analysis1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{const}} \mbox{\hyperlink{classDataLoader}{Data\+Loader}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Identifica revisores críticos (ausencia faz com que a atribuiçao falhe) 
+
+Identifica revisores críticos.
+
+Para cada revisor, simula a sua remoção do grafo e faz Edmonds-\/\+Karp Se o fluxo máximo ficar abaixo do alvo (submissões × min\+Reviews\+Per\+Submission), classifica o revisor como crítico/arriscado
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Dados carregados (submissões, revisores, configuração) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vetor de IDs de revisores críticos (ordenado) 
+\end{DoxyReturn}

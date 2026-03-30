@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/tomas/OneDrive/DAProj/code/Parser.cpp" "CMakeFiles/Projeto1DA.dir/code/Parser.cpp.o" "gcc" "CMakeFiles/Projeto1DA.dir/code/Parser.cpp.o.d"
-  "/mnt/c/Users/tomas/OneDrive/DAProj/code/Solver.cpp" "CMakeFiles/Projeto1DA.dir/code/Solver.cpp.o" "gcc" "CMakeFiles/Projeto1DA.dir/code/Solver.cpp.o.d"
-  "/mnt/c/Users/tomas/OneDrive/DAProj/code/main.cpp" "CMakeFiles/Projeto1DA.dir/code/main.cpp.o" "gcc" "CMakeFiles/Projeto1DA.dir/code/main.cpp.o.d"
+  "/home/gui/Projeto1DA/code/Parser.cpp" "CMakeFiles/Projeto1DA.dir/code/Parser.cpp.o" "gcc" "CMakeFiles/Projeto1DA.dir/code/Parser.cpp.o.d"
+  "/home/gui/Projeto1DA/code/Solver.cpp" "CMakeFiles/Projeto1DA.dir/code/Solver.cpp.o" "gcc" "CMakeFiles/Projeto1DA.dir/code/Solver.cpp.o.d"
+  "/home/gui/Projeto1DA/code/main.cpp" "CMakeFiles/Projeto1DA.dir/code/main.cpp.o" "gcc" "CMakeFiles/Projeto1DA.dir/code/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
